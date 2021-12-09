@@ -12,3 +12,9 @@ https://www.cybelesoft.com/blog/windows-and-web-integration-through-thinfinity-j
 I am using Thinfinity VirtualUI version 3.0.7.103.
 Delphi 10.4.
 Windows 10.
+
+My requirement is to have JSRO work and have the Javascript served by the Application.
+It needs to work by using...
+  VirtualUI.HTMLDoc.CreateSessionURL
+  VirtualUI.HTMLDoc.LoadScript
+
