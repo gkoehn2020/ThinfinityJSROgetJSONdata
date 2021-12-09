@@ -29,9 +29,7 @@ implementation
 
 procedure TForm1.Button3Click(Sender: TObject);
 begin
-  ro.Events['getJSON'].Fire;
-  sleep(100);
-  memo1.Lines.add(ro.Properties['myJSON'].AsJSON);
+  ro.Events['getStringFromBrowser'].Fire;
 end;
 
 procedure TForm1.FormCreate(Sender: TObject);
@@ -39,21 +37,26 @@ var
   BaseDir : string;
 begin
   BaseDir := ExtractFilePath(ParamStr(0));
-  while BaseDir<>'' do begin
-    FXtagDir := BaseDir + 'x-tag\';
+  while BaseDir <> '' do begin
+    FXtagDir := BaseDir + 'js\';
     if DirectoryExists(FXtagDir) then break;
     BaseDir := ExtractFilePath(ExcludeTrailingBackSlash(BaseDir));
   end;
 
-  VirtualUI.HTMLDoc.CreateSessionURL('/x-tag/',FXtagDir);
-  VirtualUI.HTMLDoc.LoadScript('/x-tag/x-tag-core.min.js','');
-  VirtualUI.HTMLDoc.ImportHTML('/x-tag/vui-jsro/vui-jsro.html','');
-  VirtualUI.HTMLDoc.CreateComponent('vui-gk', 'vui-gk', 0);
-
   ro := TJSObject.Create('ro');
-  ro.Events.Add('getJSON');
-  ro.Properties.Add('myJSON').AsJSON := '{}';
+  ro.Events.Add('getStringFromBrowser');
+  ro.Properties.Add('stringdata')
+    .OnSet(TJSBinding.Create(
+      procedure(const Parent: IJSObject; const Prop: IJSproperty)
+      var value: string;
+      begin
+         value := Prop.AsString;
+         showmessage(value);
+      end
+    )).AsString := '';
   ro.ApplyModel;
+  VirtualUI.HTMLDoc.CreateSessionURL('/js/',FXtagDir);
+  VirtualUI.HTMLDoc.LoadScript('/js/vui-jsro.js','');
 end;
 
 end.
