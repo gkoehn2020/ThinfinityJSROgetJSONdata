@@ -1,5 +1,5 @@
 # ThinfinityJSROgetJSONdata
-Testing the JSRO system trying to read JSON data from the browser
+Testing the JSRO system trying to read data from the browser
 
 There is a C# version at...
 https://github.com/gkoehn2020/ThinfinityJSROgetJSONdataSharp
