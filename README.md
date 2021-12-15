@@ -8,7 +8,7 @@ Learn how to use JSRO at...<br>
 https://www.cybelesoft.com/blog/windows-and-web-integration-through-thinfinity-jsro-javascript-remote-objects-introduction/     
 
 <i>[2021-12-09] On Thinfinity VirtualUI version 3.0.7.103, the property in the Windows Application is always empty!</i><br>
-<i>[2021-12-15] </i>Thinfinity VirtualUI version 3.0.7.108 fixed the issue.</i>
+<i>[2021-12-15] Thinfinity VirtualUI version 3.0.7.108 fixed the issue.</i>
 
 Delphi 10.4.<br>
 Windows 10.<br>
