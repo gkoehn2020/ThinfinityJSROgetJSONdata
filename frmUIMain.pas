@@ -51,7 +51,7 @@ begin
       var value: string;
       begin
          value := Prop.AsString;
-         showmessage(value);
+         Memo1.Lines.Add(value);
       end
     )).AsString := '';
   ro.ApplyModel;
